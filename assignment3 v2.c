@@ -30,10 +30,10 @@ int main (int argc, char *argv[])
 
 FILE *inFile1;
 int errnum;
-char c,*input;
-int i=4;
+char c[4];
+char *array;
+int size=0;
 
-	input = (char *) malloc(sizeof(char));
 	inFile1 = fopen(argv[1], "r");   /* Opening file stream. "r" for read  */
 
 
@@ -42,9 +42,21 @@ int i=4;
 		 fprintf(stderr, "Error opening file: %s\n", strerror( errnum ));
   		  exit(0);
  		 }
+	
+	
+	c=fgets("%.4s"inFile);
+	
+		if (c[0]!="L"|| c[1]!=":"){
+		printf("Wrong file format. The program has terminated.");
+		exit(0);
+		}
+	
+	sscanf(c,"%d",&size);
+	
 
  	
-	
+char *array;
+	array=(char*) malloc(size);
  	
 
 		
